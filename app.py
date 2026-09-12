@@ -202,3 +202,27 @@ if image is not None:
 
 else:
     st.info("👈 Choisis une image dans la barre latérale pour commencer.")
+    st.markdown("### 🍎 Exemples d'images à tester")
+    st.caption("Copie l'une de ces URLs et colle-la dans le champ **🔗 URL** de la barre latérale :")
+
+    examples = [
+        {
+            "title": "Exemple 1 : Pommier chargé",
+            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa03jgrypAbpT0wMnpwYswderel3mKJ8Up_eod3y42jQ&s=10"
+        },
+        {
+            "title": "Exemple 2 : Pommes en gros plan",
+            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpWubGL3e3dO0i2mKvFq1mgr0aUoTza-SiH7JDcmvQ1g&s=10"
+        },
+        {
+            "title": "Exemple 3 : Branche avec feuillage",
+            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6uIYVgse0IKEesIy3RSa0Y_0mtF1bcBW6N3Sq2pYUKw&s=10"
+        }
+    ]
+
+    cols = st.columns(3)
+    for idx, (col, ex) in enumerate(zip(cols, examples), 1):
+        with col:
+            st.markdown(f"**{ex['title']}**")
+            st.image(ex["url"], use_container_width=True)
+            st.code(ex["url"], language="text")
